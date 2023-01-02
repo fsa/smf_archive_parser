@@ -38,17 +38,35 @@ class Board
 
     private function getBoardData($td)
     {
-        //var_dump($td[0]->innerHtml);
-        //var_dump($td[1]->innerHtml);
-        //var_dump($td[2]->innerHtml);
-        //var_dump($td[3]->innerHtml);
-        //var_dump($td[4]->innerHtml);
-        //var_dump($td[5]->innerHtml);
-        //var_dump($td[6]->innerHtml);
-        $a = $td[2]->find('a');
-        return [
-            'title'=>$a->innerHtml,
-            'url'=>$a->getAttribute('href'),
-        ];
+        # 0
+        $result['post_type_img'] = basename($td[0]->find('img')->getAttribute('src'));
+        # 1
+        $result['img'] = basename($td[1]->find('img')->getAttribute('src'));
+        # 2
+        $a_title = $td[2]->find('a');
+        $result['title'] = $a_title->innerHtml;
+        parse_str(parse_url($a_title->getAttribute('href'), PHP_URL_QUERY), $topic);
+        if (!isset($topic['topic'])) {
+            throw new Exception('Не найден id топика для URL: ' . $a_title->getAttribute('href'));
+        }
+        $id_dot = explode('.', $topic['topic'], 2);
+        $id = intval($id_dot[0]);
+        $result['id'] = $id;
+        # 3
+        $a_user = $td[3]->find('a');
+        parse_str(parse_url($a_user->getAttribute('href'), PHP_URL_QUERY), $user_src);
+        if (!isset($user_src['action'])) {
+            throw new Exception('Не найден id пользователя: ' . $a_user);
+        }
+        $result['user_id'] = intval(trim($user_src['action'], 'profile;u='));
+        $result['username'] = $a_user->innerHtml;
+        # 4
+        $result['answers'] = intval($td[4]->innerHtml);
+        # 5
+        $result['views'] = intval($td[5]->innerHtml);
+        # 6
+        $result['field_6'] = $td[6]->innerHtml;
+
+        return (object)$result;
     }
 }
