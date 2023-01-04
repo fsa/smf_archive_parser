@@ -108,9 +108,9 @@ class Board
         foreach ($el->find('a') as $href) {
             $id = $this->getBoardIdFromUrl($href->getAttribute('href'));
             $result[$id] = (object)[
-                'root_id' => $root_id,
-                'cat_id' => $cat_id,
-                'title' => $href->innerHtml,
+                'parent_id' => $root_id,
+                'category_id' => $cat_id,
+                'name' => $href->innerHtml,
             ];
         }
         return $result;
@@ -124,9 +124,9 @@ class Board
             $id =>
             (object)
             [
-                'root_id' => null,
-                'cat_id' => $cat_id,
-                'title' => $el[1]->find('a')->innerHtml,
+                'parent_id' => null,
+                'category_id' => $cat_id,
+                'name' => $el[1]->find('a')->innerHtml,
                 'description' => $el[1]->find('p')->innerHtml,
             ]
         ];
