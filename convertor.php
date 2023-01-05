@@ -12,7 +12,7 @@ $query = file_get_contents("src/sql/create.sql");
 echo 'Создание таблиц: ' . $pdo->exec($query) . PHP_EOL;
 
 // Categories
-$file = 'archive/club2u.ru/index.html';
+$file = "archive/{$settings['SITE_URL']}/index.html";
 
 $board = new \FSA\SMF\Board;
 $board->loadFromFile($file);
@@ -25,7 +25,6 @@ foreach ($categories as $id => $category) {
 
 // Boards
 $boards = $board->getBoards();
-var_dump($boards);
 $board_order = 0;
 foreach ($boards as $id => $entity) {
     $entity->id = $id;
