@@ -33,4 +33,9 @@ class Tools
         return intval($id_dot[0]);
     }
 
+    public static function getDatetimeFromText($text)
+    {
+        $en_date = str_replace(['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'], ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'], $text);
+        return date('c', strtotime($en_date));
+    }
 }
