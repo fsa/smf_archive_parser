@@ -4,7 +4,10 @@ use FSA\SMF\PostgreSQL;
 
 require_once "vendor/autoload.php";
 $settings = require 'settings.php';
+$tz = $settings['TIMEZONE']??'Asia/Novosibirsk';
+date_default_timezone_set($tz);
 $pdo = new PostgreSQL($settings['DATABASE_URL']);
+$pdo->query("SET TIMEZONE=\"$tz\"");
 
 $query = file_get_contents("src/sql/drop.sql");
 echo 'Удаление таблиц: ' . $pdo->exec($query) . PHP_EOL;
