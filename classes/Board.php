@@ -45,10 +45,10 @@ class Board
         # 2
         $a_title = $td[2]->find('a');
         $result['title'] = $a_title->innerHtml;
-        $result['id'] = $this->getTopicIdFromUrl($a_title->getAttribute('href'));
+        $result['id'] = Tools::getTopicIdFromUrl($a_title->getAttribute('href'));
         # 3
         $a_user = $td[3]->find('a');
-        $result['user_id'] = $this->getUserIdFromUrl($a_user->getAttribute('href'));
+        $result['user_id'] = Tools::getUserIdFromUrl($a_user->getAttribute('href'));
         $result['username'] = $a_user->innerHtml;
         # 4
         $result['answers'] = intval($td[4]->innerHtml);
@@ -106,7 +106,7 @@ class Board
     {
         $result = [];
         foreach ($el->find('a') as $href) {
-            $id = $this->getBoardIdFromUrl($href->getAttribute('href'));
+            $id = Tools::getBoardIdFromUrl($href->getAttribute('href'));
             $result[$id] = (object)[
                 'parent_id' => $root_id,
                 'category_id' => $cat_id,
@@ -119,7 +119,7 @@ class Board
     private function getBoardFromTd($el, $cat_id): array
     {
         $td_icon = $el[0]->find('a');
-        $id = $this->getBoardIdFromUrl($td_icon->getAttribute('href'));
+        $id = Tools::getBoardIdFromUrl($td_icon->getAttribute('href'));
         return [
             $id =>
             (object)
@@ -132,32 +132,4 @@ class Board
         ];
     }
 
-    private function getBoardIdFromUrl($url): int
-    {
-        parse_str(parse_url($url, PHP_URL_QUERY), $url);
-        if (!isset($url['board'])) {
-            throw new Exception('Не найден id форума для URL: ' . $url);
-        }
-        $id_dot = explode('.', $url['board'], 2);
-        return intval($id_dot[0]);
-    }
-
-    private function getTopicIdFromUrl($url): int
-    {
-        parse_str(parse_url($url, PHP_URL_QUERY), $url);
-        if (!isset($url['topic'])) {
-            throw new Exception('Не найден id топика для URL: ' . $url);
-        }
-        $id_dot = explode('.', $url['topic'], 2);
-        return intval($id_dot[0]);
-    }
-
-    private function getUserIdFromUrl($url): int
-    {
-        parse_str(parse_url($url, PHP_URL_QUERY), $user_src);
-        if (!isset($user_src['action'])) {
-            throw new Exception('Не найден id пользователя в URL: ' . $url);
-        }
-        return intval(trim($user_src['action'], 'profile;u='));
-    }
 }

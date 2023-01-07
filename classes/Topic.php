@@ -36,14 +36,18 @@ class Topic
         return $data;
     }
 
-    private function getTopicData($post)
+    private function getTopicData($post_dom)
     {
-        $post_inner = $post->find('.post')->find('.inner');
+        $post_inner = $post_dom->find('.post')->find('.inner');
         $post = preg_replace('/\<div class\="quoteheader"\>\<div class\="topslice_quote"\>\<a href\="http\:\/\/www\.club2u\.ru\/index\.php\/topic,(\d+)\.msg(\d+)\.html\#msg(\d+)"\>Цитата: (.*)\<\/a\>\<\/div\>\<\/div\>\<blockquote class\="bbc_standard_quote"\>(.*)\<\/blockquote\>\<div class\="quotefooter"\>\<div class\="botslice_quote"\>\<\/div\>\<\/div>/', '<blockquote msg_id="$2" topic_id="$1" quote="$4">$5</blockquote>', $post_inner->innerHtml);
         $post = preg_replace('/\<div class\="quoteheader"\>\<div class\="topslice_quote"\>Цитата: (.*)\<\/div\>\<\/div\>\<blockquote class\="bbc_standard_quote"\>(.*)\<\/blockquote\>\<div class\="quotefooter"\>\<div class\="botslice_quote"\>\<\/div\>\<\/div>/', '<blockquote quote="$1">$2</blockquote>', $post);
+
+        $poster_a = $post_dom->find('div')->find('.poster')->find('h4')->find('a');
         $result = [
-            'id'=> intval(trim($post_inner->id, 'msg_')),
-            'post'=>$post
+            'id' => intval(trim($post_inner->id, 'msg_')),
+            'post' => $post,
+            'poster' => $poster_a->innerHtml,
+            'poster_id' => Tools::getUserIdFromUrl($poster_a->getAttribute('href'))
         ];
         return (object)$result;
     }
