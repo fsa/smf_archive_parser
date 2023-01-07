@@ -16,12 +16,19 @@ class Board
 
     public function getBoardTopics()
     {
-        $contents = $this->dom->find('.boardsframe')->find('tbody')->find('tr');
+        $tbody = $this->dom->find('#messageindex')->find('.boardsframe')->find('tbody');
+        if (count($tbody) == 0) {
+            return null;
+        }
+        $contents = $tbody->find('tr');
         $data = [];
         foreach ($contents as $tr) {
             $td = $tr->find('td');
             switch (count($td)) {
                 case 1:
+                    break;
+                case 4:
+                    # Проверить
                     break;
                 case 7:
                     $topic = $this->getBoardData($td);
@@ -30,7 +37,7 @@ class Board
                     }
                     break;
                 default:
-                    throw new Exception('Неверное число элементов td');
+                    throw new Exception('Неверное число элементов td: ' . count($td));
             }
         }
         return $data;
@@ -48,8 +55,12 @@ class Board
         $result['id'] = Tools::getTopicIdFromUrl($a_title->getAttribute('href'));
         # 3
         $a_user = $td[3]->find('a');
-        $result['user_id'] = Tools::getUserIdFromUrl($a_user->getAttribute('href'));
-        $result['username'] = $a_user->innerHtml;
+        if (count($a_user) > 0) {
+            $result['user_id'] = Tools::getUserIdFromUrl($a_user->getAttribute('href'));
+            $result['username'] = $a_user->innerHtml;
+        } else {
+            $result['username'] = trim($td[3]->innerHtml);
+        }
         # 4
         $result['answers'] = intval($td[4]->innerHtml);
         # 5
@@ -131,5 +142,4 @@ class Board
             ]
         ];
     }
-
 }
