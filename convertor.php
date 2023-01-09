@@ -95,7 +95,7 @@ foreach ($files as $item) {
 
     $messages = $topic->getTopicMessages();
     // Users
-    $stmt = $pdo->prepare('INSERT INTO members (id, name) VALUES (?,?) ON CONFLICT (id) DO NOTHING');
+    $stmt = $pdo->prepare('INSERT INTO members (id, name) VALUES (?,?) ON CONFLICT (id) DO UPDATE SET name=EXCLUDED.name WHERE members.name IS NULL AND EXCLUDED.name IS NOT NULL');
     foreach ($messages as $message) {
         if ($message->member_id) {
             $stmt->execute([$message->member_id, $message->poster_name]);

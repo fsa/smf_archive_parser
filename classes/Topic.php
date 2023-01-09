@@ -64,13 +64,14 @@ class Topic
         $poster_h4 = $post_dom->find('div')->find('.poster')->find('h4');
         $poster_a = $poster_h4->find('a');
         if (count($poster_a) > 0) {
-            $li = $poster_a->find('li');
-            $poster = count($li) ? $li[0]->innerHtml : $poster_a->innerHtml;
+            $poster = trim($poster_a->innerHtml);
             $member_id = Tools::getUserIdFromUrl($poster_a->getAttribute('href'));
         } else {
-            $li = $poster_h4->find('li');
-            $poster = count($li) ? $li[0]->innerHtml : $poster_h4->innerHtml;
+            $poster = trim($poster_h4->innerHtml);
             $member_id = null;
+        }
+        if ($poster == '') {
+            $poster = null;
         }
         $result = [
             'id' => intval(trim($post_inner->id, 'msg_')),
