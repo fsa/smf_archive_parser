@@ -117,3 +117,6 @@ foreach ($files as $item) {
         }
     }
 }
+
+## обновление last_modified для таблицы topics
+# UPDATE topics t SET last_modified=p.max FROM (SELECT topic_id, max(posted) AS max FROM messages GROUP BY topic_id) p WHERE t.id=p.topic_id
