@@ -1,14 +1,14 @@
 <?php
 
 use FSA\SMF\PostgreSQL;
-use FSA\SMF\Tools;
 
 require_once "vendor/autoload.php";
 $settings = require 'settings.php';
 $tz = $settings['TIMEZONE'] ?? 'Asia/Novosibirsk';
+date_default_timezone_set($tz);
+echo "Используется часовой пояс $tz" . PHP_EOL;
 $path = "archive/{$settings['SITE_URL']}/";
 
-date_default_timezone_set($tz);
 $pdo = new PostgreSQL($settings['DATABASE_URL']);
 $pdo->query("SET TIMEZONE=\"$tz\"");
 
@@ -44,7 +44,6 @@ $all_files = scandir($dir);
 // Topics
 $match = '/^board,(.*)\.(.*).html$/';
 $files = preg_grep($match, $all_files);
-$stmt = $pdo->prepare('INSERT INTO topics (id, board_id, title) VALUES (?,?,?) ON CONFLICT (id) DO NOTHING');
 foreach ($files as $item) {
     $file = $path . 'index.php/' . trim($item);
 
@@ -59,9 +58,28 @@ foreach ($files as $item) {
     if (!$topics) {
         continue;
     }
-    //var_dump($topics);
+
+    // Users
+    $stmt = $pdo->prepare('INSERT INTO members (id, name) VALUES (?,?) ON CONFLICT (id) DO UPDATE SET name=EXCLUDED.name WHERE members.name IS NULL AND EXCLUDED.name IS NOT NULL');
     foreach ($topics as $topic) {
-        $stmt->execute([$topic->id, $board_id, $topic->title]);
+        if ($topic->user_id) {
+            $stmt->execute([$topic->user_id, $topic->username]);
+            if ($stmt->rowCount() > 0) {
+                echo "  Добавлен пользователь №{$topic->user_id}: {$topic->username}" . PHP_EOL;
+            }
+        }
+        if ($topic->updated_member_id) {
+            $stmt->execute([$topic->updated_member_id, $topic->updated_member_name]);
+            if ($stmt->rowCount() > 0) {
+                echo "  Добавлен пользователь №{$topic->updated_member_id}: {$topic->updated_member_name}" . PHP_EOL;
+            }
+        }
+    }
+
+    //var_dump($topics);
+    $stmt = $pdo->prepare('INSERT INTO topics (id, is_sticky, board_id, title, started_member_id, started_member_name, updated_member_id, updated_member_name, num_replies, num_views, last_modified) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ON CONFLICT (id) DO NOTHING');
+    foreach ($topics as $topic) {
+        $stmt->execute([$topic->id, $topic->sticky ? 't' : 'f', $board_id, $topic->title, $topic->user_id, $topic->username, $topic->updated_member_id, $topic->updated_member_name, $topic->num_replies, $topic->num_views, $topic->last_modified]);
         if ($stmt->rowCount() > 0) {
             echo "  Добавлен топик №{$topic->id}: {$topic->title}" . PHP_EOL;
         } else {
@@ -113,7 +131,6 @@ foreach ($files as $item) {
             echo "  Добавлено сообщение от {$message->posted} №{$message->id}, пользователь {$message->poster_name}" . PHP_EOL;
         } else {
             echo "  Дубликат сообщения от {$message->posted} №{$message->id}, пользователь {$message->poster_name}" . PHP_EOL;
-
         }
     }
 }

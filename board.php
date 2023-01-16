@@ -21,6 +21,7 @@ foreach ($files as $item) {
     if (!$topics) {
         continue;
     }
+    var_dump($topics);
     foreach ($topics as $topic) {
         echo '  ' . $topic->title . PHP_EOL;
     }

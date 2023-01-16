@@ -53,21 +53,32 @@ class Board
         $a_title = $td[2]->find('a');
         $result['title'] = $a_title->innerHtml;
         $result['id'] = Tools::getTopicIdFromUrl($a_title->getAttribute('href'));
+        $result['sticky'] = count($td[2]->find('img.floatright'))>0;
         # 3
         $a_user = $td[3]->find('a');
         if (count($a_user) > 0) {
             $result['user_id'] = Tools::getUserIdFromUrl($a_user->getAttribute('href'));
             $result['username'] = $a_user->innerHtml;
         } else {
+            $result['user_id'] = null;
             $result['username'] = trim($td[3]->innerHtml);
         }
         # 4
-        $result['answers'] = intval($td[4]->innerHtml);
+        $result['num_replies'] = intval($td[4]->innerHtml);
         # 5
-        $result['views'] = intval($td[5]->innerHtml);
+        $result['num_views'] = intval($td[5]->innerHtml);
         # 6
-        $result['field_6'] = $td[6]->innerHtml;
-
+        $date_span = $td[6]->find('.smalltext')->innerHtml;
+        $a_user = $td[6]->find('.smalltext')->find('a');
+        if (count($a_user) > 0) {
+            $result['updated_member_id'] = Tools::getUserIdFromUrl($a_user->getAttribute('href'));
+            $result['updated_member_name'] = $a_user->innerHtml;
+        } else {
+            $result['updated_member_id'] = null;
+            $result['updated_member_name'] = trim(trim(explode('<br />', $date_span, 2)[1], 'от'));
+        }
+        $date = explode('<br />', $date_span, 2)[0];
+        $result['last_modified'] = Tools::getDatetimeFromText($date);
         return (object)$result;
     }
 
