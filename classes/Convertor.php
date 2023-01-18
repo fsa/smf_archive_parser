@@ -106,14 +106,13 @@ class Convertor
         }
         $this->upsertUsers($users);
         $stmt = $this->pdo->prepare('INSERT INTO messages (id, topic_id, posted, member_id, subject, poster_name, body, icon) VALUES (:id, :topic_id, :posted, :member_id, :subject, :poster_name, :post, :icon) ON CONFLICT (id) DO NOTHING');
+        echo "  Найдено сообщений: " . count($messages) . PHP_EOL;
         foreach ($messages as $message) {
             $obj = get_object_vars($message);
             $obj['topic_id'] = $topic_id;
             $stmt->execute($obj);
             if ($stmt->rowCount() > 0) {
                 echo "  Добавлено сообщение от {$message->posted} №{$message->id}, пользователь {$message->poster_name}" . PHP_EOL;
-            } else {
-                echo "  Сообщение от {$message->posted} №{$message->id}, пользователь {$message->poster_name} уже есть в базе" . PHP_EOL;
             }
         }
     }
