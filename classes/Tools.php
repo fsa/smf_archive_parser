@@ -6,11 +6,11 @@ class Tools
 {
     public static function getUserIdFromUrl($url): int
     {
-        parse_str(parse_url($url, PHP_URL_QUERY), $user_src);
-        if (!isset($user_src['action'])) {
-            throw new Exception('Не найден id пользователя в URL: ' . $url);
+        parse_str(parse_url(html_entity_decode($url), PHP_URL_QUERY), $user_src);
+        if (isset($user_src['action'])) {
+            return intval(trim($user_src['action'], 'profile;u='));            
         }
-        return intval(trim($user_src['action'], 'profile;u='));
+        throw new Exception('Не найден id пользователя в URL: ' . $url);
     }
 
     public static function getBoardIdFromUrl($url): int
