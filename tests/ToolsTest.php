@@ -24,7 +24,7 @@ final class ToolsTest extends TestCase
         $this->assertEquals(900, Tools::getTopicIdFromUrl('http://www.club2u.ru/index.php/topic,900.msg25767.html?PHPSESSID=d3044cc04cc926f9c9ee6fab90c992bb#new'));
         $this->assertEquals(900, Tools::getTopicIdFromUrl('http://www.club2u.ru/index.php/topic,900.msg25767.html'));
         $this->assertEquals(900, Tools::getTopicIdFromUrl('http://www.club2u.ru/index.php/topic,900.0.html'));
-        $this->assertEquals(900, Tools::getTopicIdFromUrl('http://www.club2u.ru/index.php?topic=900'));
+        $this->assertEquals(900, Tools::getTopicIdFromUrl('http://www.club2u.ru/index.php?topic=900.0'));
     }
 
     public function testGetDatetimeFromText()

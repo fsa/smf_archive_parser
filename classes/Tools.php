@@ -15,31 +15,19 @@ class Tools
 
     public static function getBoardIdFromUrl($url): int
     {
-        parse_str(parse_url($url, PHP_URL_QUERY), $part);
-        if (isset($part['board'])) {
-            $id_dot = explode('.', $part['board'], 2);
-            $board = $id_dot[0];
-        } else {
-            if (!preg_match('/http\:\/\/www\.club2u\.ru\/index\.php\/board,(.*)\.0\.html/', $url, $match)) {
-                throw new Exception('Не найден id форума для URL: ' . $url);
-            }
-            $board = $match[0];
+        if (!preg_match('/board[,=](\d+)\.(\d+)/', $url, $match)) {
+            throw new Exception('Не найден id форума для URL: ' . $url);
         }
+        $board = $match[1];
         return intval($board);
     }
 
     public static function getTopicIdFromUrl($url): int
     {
-        parse_str(parse_url($url, PHP_URL_QUERY), $part);
-        if (isset($part['topic'])) {
-            $id_dot = explode('.', $part['topic'], 2);
-            $topic = $id_dot[0];
-        } else {
-            if (!preg_match('/http\:\/\/www\.club2u\.ru\/index\.php\/topic,(.*)\.0\.html/', $url, $match)) {
-                throw new Exception('Не найден id топика для URL: ' . $url);
-            }
-            $topic = $match[1];
-        }    
+        if (!preg_match('/topic[,=](\d+)\.(msg)?(\d+)/', $url, $match)) {
+            throw new Exception('Не найден id топика для URL: ' . $url);
+        }
+        $topic = $match[1];
         return intval($topic);
     }
 
