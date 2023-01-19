@@ -40,8 +40,7 @@ class Topic
     {
         $posts_forum = $this->dom->find('#forumposts');
         if (count($posts_forum) == 0) {
-            return [];
-            die('Другой формат');
+            return $this->getTopicMessagesV2();
         }
         $posts = $posts_forum->find('form');
         $data = [];
@@ -53,6 +52,18 @@ class Topic
             if ($post) {
                 array_push($data, $post);
             }
+        }
+        return $data;
+    }
+
+    private function getTopicMessagesV2()
+    {
+        $posts_table = $this->dom->find('#quickModForm')->find('table');
+        $posts = $posts_table->getChildren();
+        $data = [];
+        foreach ($posts as $post) {
+            //$a = $post->getChildren();
+            echo $post->innerHtml . PHP_EOL . PHP_EOL;
         }
         return $data;
     }
