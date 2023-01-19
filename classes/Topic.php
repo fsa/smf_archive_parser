@@ -16,13 +16,23 @@ class Topic
 
     public function getTopicInfo()
     {
-        $a_name = $this->dom->find('#linktree_upper')->find('.last')->find('a');
-        preg_match_all('/board[,=](\d+)\.0/', $this->dom->find('#linktree_upper')->innerHtml, $board_match);
-        $board_id = intval($board_match[1][count($board_match[1]) - 1]);
+        $nav = $this->dom->find('#linktree_upper');
+        if (count($nav) == 0) {
+            // Другая навигация
+            $nav = $this->dom->find('.nav')->find('a');
+            preg_match_all('/board[,=](\d+)\.0/', $nav[count($nav) - 2]->getAttribute('href'), $board_match);
+            $board_id = intval($board_match[1][count($board_match[1]) - 1]);
+            $title = $nav[count($nav) - 1]->innerHtml;
+        } else {
+            $a_name = $nav->find('.last')->find('a');
+            preg_match_all('/board[,=](\d+)\.0/', $nav->innerHtml, $board_match);
+            $board_id = intval($board_match[1][count($board_match[1]) - 1]);
+            $title = $a_name->find('span')->innerHtml;
+        }
         return [
             'id' => intval($this->dom->find('input[name="topic"]')->getAttribute('value')),
             'board_id' => $board_id,
-            'title' => $a_name->find('span')->innerHtml
+            'title' => $title
         ];
     }
 
