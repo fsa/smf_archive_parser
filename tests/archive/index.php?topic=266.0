@@ -1,0 +1,979 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+	<link rel="stylesheet" type="text/css" href="http://www.club2u.ru/Themes/core/css/index.css?fin20" />
+	<script type="text/javascript" src="http://www.club2u.ru/Themes/default/scripts/script.js?fin20"></script>
+	<script type="text/javascript" src="http://www.club2u.ru/Themes/core/scripts/theme.js?fin20"></script>
+	<script type="text/javascript"><!-- // --><![CDATA[
+		var smf_theme_url = "http://www.club2u.ru/Themes/core";
+		var smf_default_theme_url = "http://www.club2u.ru/Themes/default";
+		var smf_images_url = "http://www.club2u.ru/Themes/core/images";
+		var smf_scripturl = "http://www.club2u.ru/index.php";
+		var smf_iso_case_folding = false;
+		var smf_charset = "UTF-8";
+		var ajax_notification_text = "Загружается...";
+		var ajax_notification_cancel_text = "Отменить";
+	// ]]></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="description" content="Бета-версия нового Ю-кабинета." />
+	<title>Бета-версия нового Ю-кабинета.</title>
+	<link rel="canonical" href="http://www.club2u.ru/index.php?topic=266.0" />
+	<link rel="help" href="http://www.club2u.ru/index.php?action=help" />
+	<link rel="search" href="http://www.club2u.ru/index.php?action=search" />
+	<link rel="contents" href="http://www.club2u.ru/index.php" />
+	<link rel="alternate" type="application/rss+xml" title="Твой клуб - RSS" href="http://www.club2u.ru/index.php?type=rss;action=.xml" />
+	<link rel="prev" href="http://www.club2u.ru/index.php?topic=266.0;prev_next=prev" />
+	<link rel="next" href="http://www.club2u.ru/index.php?topic=266.0;prev_next=next" />
+	<link rel="index" href="http://www.club2u.ru/index.php?board=8.0" />
+	<link rel="stylesheet" type="text/css" id="editor_css" href="http://www.club2u.ru/Themes/default/css/editor.css" />
+		<script type="text/javascript"><!-- // --><![CDATA[
+			var smf_smileys_url = 'http://www.club2u.ru/Smileys/SoLoSMiLeYS1';
+			var oEditorStrings= {
+				wont_work: 'Ваш браузер не поддерживает редактирование в формате Rich Text.',
+				func_disabled: 'Ваш браузер не поддерживает эту функцию.',
+				prompt_text_email: 'Введите e-mail адрес.',
+				prompt_text_ftp: 'Ведите ftp адрес',
+				prompt_text_url: 'Введите адрес ссылки.',
+				prompt_text_img: 'Ведите местонахождение картинки.'
+			}
+		// ]]></script>
+		<script type="text/javascript" src="http://www.club2u.ru/Themes/default/scripts/editor.js?fin20"></script>
+		<script type="text/javascript" src="http://www.club2u.ru/Themes/default/scripts/captcha.js"></script>
+</head>
+<body>
+<div id="mainframe" style="width: 90%">
+	<div class="tborder">
+		<div class="catbg">
+			<img class="floatright" id="smflogo" src="http://www.club2u.ru/Themes/core/images/smflogo.gif" alt="Simple Machines Forum" />
+			<h1 id="forum_name">
+				<img src="/club.gif" alt="Твой клуб" />
+			</h1>
+		</div>
+		<ul id="greeting_section" class="reset titlebg2">
+			<li id="time" class="smalltext floatright">
+				10 Июль 2012, 05:30:17
+				<img id="upshrink" src="http://www.club2u.ru/Themes/core/images/upshrink.gif" alt="*" title="Свернуть/Развернуть" align="bottom" style="display: none;" />
+			</li>
+			<li id="name">Добро пожаловать, <em>Гость</em></li>
+		</ul>
+		<div id="user_section" class="bordercolor">
+			<div class="windowbg2 clearfix">
+				<script type="text/javascript" src="http://www.club2u.ru/Themes/default/scripts/sha1.js"></script>
+				<form class="windowbg" id="guest_form" action="http://www.club2u.ru/index.php?action=login2" method="post" accept-charset="UTF-8"  onsubmit="hashLoginPassword(this, 'd42ec52fda567cd26ecb67fad67c2eb8');">
+					Пожалуйста, <a href="http://www.club2u.ru/index.php?action=login">войдите</a> или <a href="http://www.club2u.ru/index.php?action=register">зарегистрируйтесь</a>.<br />
+					<input type="text" name="user" size="10" class="input_text" />
+					<input type="password" name="passwrd" size="10" class="input_password" />
+					<select name="cookielength">
+						<option value="60">1 час</option>
+						<option value="1440">1 день</option>
+						<option value="10080">1 неделя</option>
+						<option value="43200">1 месяц</option>
+						<option value="-1" selected="selected">Навсегда</option>
+					</select>
+					<input type="submit" value="Вход" class="button_submit" /><br />
+					
+					<input type="hidden" name="hash_passwrd" value="" />
+				</form>
+			</div>
+		</div>
+		<div id="news_section" class="titlebg2 clearfix">
+			<form class="floatright" id="search_form" action="http://www.club2u.ru/index.php?action=search2" method="post" accept-charset="UTF-8">
+				<a href="http://www.club2u.ru/index.php?action=search;advanced" title="Расширенный поиск"><img id="advsearch" src="http://www.club2u.ru/Themes/core/images/filter.gif" align="middle" alt="Расширенный поиск" /></a>
+				<input type="text" name="search" value="" style="width: 190px;" class="input_text" />&nbsp;
+				<input type="submit" name="submit" value="Поиск" style="width: 11ex;" class="button_submit" />
+				<input type="hidden" name="advanced" value="0" />
+				<input type="hidden" name="topic" value="266" />
+			</form>
+		</div>
+	</div>
+	<script type="text/javascript"><!-- // --><![CDATA[
+		var oMainHeaderToggle = new smc_Toggle({
+			bToggleEnabled: true,
+			bCurrentlyCollapsed: false,
+			aSwappableContainers: [
+				'user_section',
+				'news_section'
+			],
+			aSwapImages: [
+				{
+					sId: 'upshrink',
+					srcExpanded: smf_images_url + '/upshrink.gif',
+					altExpanded: 'Свернуть/Развернуть',
+					srcCollapsed: smf_images_url + '/upshrink2.gif',
+					altCollapsed: 'Свернуть/Развернуть'
+				}
+			],
+			oThemeOptions: {
+				bUseThemeSettings: false,
+				sOptionName: 'collapse_header',
+				sSessionVar: 'd5929be8c80a',
+				sSessionId: 'd42ec52fda567cd26ecb67fad67c2eb8'
+			},
+			oCookieOptions: {
+				bUseCookie: true,
+				sCookieName: 'upshrink'
+			}
+		});
+	// ]]></script>
+	<div class="main_menu">
+		<ul class="reset clearfix">
+			<li id="button_home" class="active">
+				<a title="Начало" href="http://www.club2u.ru/index.php">
+					<span><em>Начало</em></span>
+				</a>
+			</li>
+			<li id="button_help">
+				<a title="Помощь" href="http://www.club2u.ru/index.php?action=help">
+					<span>Помощь</span>
+				</a>
+			</li>
+			<li id="button_search">
+				<a title="Поиск" href="http://www.club2u.ru/index.php?action=search">
+					<span>Поиск</span>
+				</a>
+			</li>
+			<li id="button_login">
+				<a title="Вход" href="http://www.club2u.ru/index.php?action=login">
+					<span>Вход</span>
+				</a>
+			</li>
+			<li id="button_register" class="last">
+				<a title="Регистрация" href="http://www.club2u.ru/index.php?action=register">
+					<span>Регистрация</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+	<ul class="linktree" id="linktree_upper">
+		<li>
+			<a href="http://www.club2u.ru/index.php"><span>Твой клуб</span></a> &gt;
+		</li>
+		<li>
+			<a href="http://www.club2u.ru/index.php#c2"><span>Вопросы по услугам Utel: Доступ в Интернет, "Wi-Fi от Utel", "Utel.TV"</span></a> &gt;
+		</li>
+		<li>
+			<a href="http://www.club2u.ru/index.php?board=4.0"><span>"Домашний интернет" от Utel</span></a> &gt;
+		</li>
+		<li>
+			<a href="http://www.club2u.ru/index.php?board=8.0"><span>Оплата услуг, личный кабинет</span></a> &gt;
+		</li>
+		<li class="last">Тема: 
+			<a href="http://www.club2u.ru/index.php?topic=266.0"><span>Бета-версия нового Ю-кабинета.</span></a>
+		</li>
+	</ul>
+	<div id="bodyarea"><center><table align="center" border="0" cellpadding="5" cellspacing="5">
+<tbody>
+<tr>
+<td><script type="text/javascript"><!--
+google_ad_client = "ca-pub-6651731503917348";
+/* club small */
+google_ad_slot = "1738137630";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></td>
+<td><script type="text/javascript"><!--
+google_ad_client = "ca-pub-6651731503917348";
+/* club small */
+google_ad_slot = "1738137630";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></td>
+<td><script type="text/javascript"><!--
+google_ad_client = "ca-pub-6651731503917348";
+/* club small */
+google_ad_slot = "1738137630";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></td>
+</tr>
+</tbody>
+</table></center>
+<br/>
+<a id="top"></a>
+<a id="msg5686"></a>
+<div class="clearfix margintop" id="postbuttons">
+	<div class="next"><a href="http://www.club2u.ru/index.php?topic=266.0;prev_next=prev#new">&laquo; предыдущая тема</a> <a href="http://www.club2u.ru/index.php?topic=266.0;prev_next=next#new">следующая тема &raquo;</a></div>
+	<div class="margintop middletext floatleft">Страницы: [<strong>1</strong>] <a class="navPages" href="http://www.club2u.ru/index.php?topic=266.15">2</a> <a class="navPages" href="http://www.club2u.ru/index.php?topic=266.30">3</a> <a class="navPages" href="http://www.club2u.ru/index.php?topic=266.45">4</a>   &nbsp;&nbsp;<a href="#lastPost"><strong>Вниз</strong></a></div>
+	<div class="nav floatright">
+		<div class="buttonlist_bottom">
+			<ul class="reset clearfix">
+				<li class="last"><a class="button_strip_print" href="http://www.club2u.ru/index.php?action=printpage;topic=266.0" rel="new_win nofollow"><span>Печать</span></a></li>
+			</ul>
+		</div></div>
+</div>
+<div id="forumposts" class="tborder">
+	<h3 class="catbg3">
+		<img src="http://www.club2u.ru/Themes/core/images/topic/veryhot_post.gif" align="bottom" alt="" />
+		<span>Автор</span>
+		<span id="top_subject">Тема: Бета-версия нового Ю-кабинета. &nbsp;(Прочитано 10815 раз)</span>
+	</h3>
+	<div id="whoisviewing" class="smalltext headerpadding windowbg2">0 Пользователей и 1 Гость просматривают эту тему.
+	</div>
+	<form action="http://www.club2u.ru/index.php?action=quickmod2;topic=266.0" method="post" accept-charset="UTF-8" name="quickModForm" id="quickModForm" style="margin: 0;" onsubmit="return oQuickModify.bInEditMode ? oQuickModify.modifySave('d42ec52fda567cd26ecb67fad67c2eb8', 'd5929be8c80a') : false">
+		<div class="bordercolor">
+			<div class="clearfix windowbg largepadding">
+				<div class="floatleft poster">
+					<h4><a href="http://www.club2u.ru/index.php?action=profile;u=416" title="Просмотр профиля LPS">LPS</a></h4>
+					<ul class="reset smalltext" id="msg_5686_extra_info">
+						<li>Ветеран</li>
+						<li><img src="http://www.club2u.ru/Themes/core/images/star.gif" alt="*" /><img src="http://www.club2u.ru/Themes/core/images/star.gif" alt="*" /><img src="http://www.club2u.ru/Themes/core/images/star.gif" alt="*" /><img src="http://www.club2u.ru/Themes/core/images/star.gif" alt="*" /><img src="http://www.club2u.ru/Themes/core/images/star.gif" alt="*" /></li>
+						<li class="margintop">Карма: +2/-0</li>
+						<li><img src="http://www.club2u.ru/Themes/core/images/useroff.gif" alt="Оффлайн" border="0" style="margin-top: 2px;" /><span class="smalltext"> Оффлайн</span></li>
+						<li>Сообщений: 1558</li>
+						<li class="margintop">
+							<ul class="reset nolist">
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div class="postarea">
+					<div class="flow_hidden">
+						<div class="keyinfo">
+							<div class="messageicon"><img src="http://www.club2u.ru/Themes/core/images/post/xx.gif" alt="" border="0" /></div>
+							<h5 id="subject_5686">
+								<a href="http://www.club2u.ru/index.php?topic=266.msg5686#msg5686" rel="nofollow">Бета-версия нового Ю-кабинета.</a>
+							</h5>
+							<div class="smalltext">&#171; <strong> :</strong> 30 Декабрь 2009, 00:17:53 &#187;</div>
+							<div id="msg_5686_quick_mod"></div>
+						</div>
+					</div>
+					<div class="post">
+						<hr class="hrcolor" width="100%" size="1" />
+						<div class="inner" id="msg_5686"><a href="https://ucabinet-b.u-tel.ru/" class="bbc_link" target="_blank">Cабж >>></a><br /><br /><a href="http://ekt.u-tel.ru/content/newsitem_7371" class="bbc_link" target="_blank">Ссылка на новость >>></a><br /><br />Дождя вроде не было, кабинеты растут как грибы!<br /><br />add: с тестового логина недоступен.</div>
+					</div>
+				</div>
+				<div class="moderatorbar">
+					<div class="smalltext floatleft" id="modified_5686">
+					</div>
+					<div class="smalltext largepadding floatright">
+						<img src="http://www.club2u.ru/Themes/core/images/ip.gif" alt="" border="0" />
+						Записан
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="bordercolor">
+			<a id="msg5687"></a>
+			<div class="clearfix topborder windowbg2 largepadding">
+				<div class="floatleft poster">
+					<h4><a href="http://www.club2u.ru/index.php?action=profile;u=596" title="Просмотр профиля boooka">boooka</a></h4>
+					<ul class="reset smalltext" id="msg_5687_extra_info">
+						<li>Ветеран</li>
+						<li><img src="http://www.club2u.ru/Themes/core/images/star.gif" alt="*" /><img src="http://www.club2u.ru/Themes/core/images/star.gif" alt="*" /><img src="http://www.club2u.ru/Themes/core/images/star.gif" alt="*" /><img src="http://www.club2u.ru/Themes/core/images/star.gif" alt="*" /><img src="http://www.club2u.ru/Themes/core/images/star.gif" alt="*" /></li>
+						<li class="margintop">Карма: +89/-4</li>
+						<li><img src="http://www.club2u.ru/Themes/core/images/useroff.gif" alt="Оффлайн" border="0" style="margin-top: 2px;" /><span class="smalltext"> Оффлайн</span></li>
+						<li>Сообщений: 2094</li>
+						<li class="margintop" style="overflow: auto;"><img class="avatar" src="http://www.club2u.ru/index.php?action=dlattach;attach=26;type=avatar" alt="" /></li>
+						<li class="margintop">
+							<ul class="reset nolist">
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div class="postarea">
+					<div class="flow_hidden">
+						<div class="keyinfo">
+							<div class="messageicon"><img src="http://www.club2u.ru/Themes/core/images/post/xx.gif" alt="" border="0" /></div>
+							<h5 id="subject_5687">
+								<a href="http://www.club2u.ru/index.php?topic=266.msg5687#msg5687" rel="nofollow">Бета-версия нового Ю-кабинета.</a>
+							</h5>
+							<div class="smalltext">&#171; <strong>Ответ #1 :</strong> 30 Декабрь 2009, 00:35:03 &#187;</div>
+							<div id="msg_5687_quick_mod"></div>
+						</div>
+					</div>
+					<div class="post">
+						<hr class="hrcolor" width="100%" size="1" />
+						<div class="inner" id="msg_5687">Кто то регистрировался ? Пользовался ?</div>
+					</div>
+				</div>
+				<div class="moderatorbar">
+					<div class="smalltext floatleft" id="modified_5687">
+					</div>
+					<div class="smalltext largepadding floatright">
+						<img src="http://www.club2u.ru/Themes/core/images/ip.gif" alt="" border="0" />
+						Записан
+					</div>
+					<div class="signature" id="msg_5687_signature">Потряси лумумбой.<br /><a href="http://bf2.tomgame.ru/player.php?pid=100668195" class="bbc_link" target="_blank"><img src="http://bf2.tomgame.ru/signature/output/100668195.png" alt="" width="350" height="19" class="bbc_img resized" /></a></div>
+				</div>
+			</div>
+		</div>
+		<div class="bordercolor">
+			<a id="msg5692"></a>
+			<div class="clearfix topborder windowbg largepadding">
+				<div class="floatleft poster">
+					<h4><a href="http://www.club2u.ru/index.php?action=profile;u=2199" title="Просмотр профиля vvmel">vvmel</a></h4>
+					<ul class="reset smalltext" id="msg_5692_extra_info">
+						<li>Пользователь</li>
+						<li><img src="http://www.club2u.ru/Themes/core/images/star.gif" alt="*" /><img src="http://www.club2u.ru/Themes/core/images/star.gif" alt="*" /></li>
+						<li class="margintop">Карма: +0/-0</li>
+						<li><img src="http://www.club2u.ru/Themes/core/images/useroff.gif" alt="Оффлайн" border="0" style="margin-top: 2px;" /><span class="smalltext"> Оффлайн</span></li>
+						<li>Сообщений: 79</li>
+						<li class="margintop" style="overflow: auto;"><img class="avatar" src="http://www.club2u.ru/index.php?action=dlattach;attach=48;type=avatar" alt="" /></li>
+						<li class="margintop">
+							<ul class="reset nolist">
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div class="postarea">
+					<div class="flow_hidden">
+						<div class="keyinfo">
+							<div class="messageicon"><img src="http://www.club2u.ru/Themes/core/images/post/xx.gif" alt="" border="0" /></div>
+							<h5 id="subject_5692">
+								<a href="http://www.club2u.ru/index.php?topic=266.msg5692#msg5692" rel="nofollow">Бета-версия нового Ю-кабинета.</a>
+							</h5>
+							<div class="smalltext">&#171; <strong>Ответ #2 :</strong> 30 Декабрь 2009, 08:02:54 &#187;</div>
+							<div id="msg_5692_quick_mod"></div>
+						</div>
+					</div>
+					<div class="post">
+						<hr class="hrcolor" width="100%" size="1" />
+						<div class="inner" id="msg_5692"><div class="quoteheader"><div class="topslice_quote">Цитата: LPS</div></div><blockquote class="bbc_standard_quote">Дождя вроде не было, кабинеты растут как грибы!</blockquote><div class="quotefooter"><div class="botslice_quote"></div></div>причем как грибы-галлюциногены &nbsp;<img src="http://www.club2u.ru/Smileys/SoLoSMiLeYS1/cheesy.gif" alt="&#58;D" title="Веселый" class="smiley" /> <br />"Кабинет" ни о чем...</div>
+					</div>
+				</div>
+				<div class="moderatorbar">
+					<div class="smalltext floatleft" id="modified_5692">
+					</div>
+					<div class="smalltext largepadding floatright">
+						<img src="http://www.club2u.ru/Themes/core/images/ip.gif" alt="" border="0" />
+						Записан
+					</div>
+					<div class="signature" id="msg_5692_signature">Ушел в "Планету"... Сюда прихожу из сострадания... <img src="http://www.club2u.ru/Smileys/SoLoSMiLeYS1/smiley.gif" alt="&#58;&#41;" title="Улыбающийся" class="smiley" /></div>
+				</div>
+			</div>
+		</div>
+		<div class="bordercolor">
+			<a id="msg5706"></a>
+			<div class="clearfix topborder windowbg2 largepadding">
+				<div class="floatleft poster">
+					<h4><a href="http://www.club2u.ru/index.php?action=profile;u=1074" title="Просмотр профиля Александр">Александр</a></h4>
+					<ul class="reset smalltext" id="msg_5706_extra_info">
+						<li>Ветеран</li>
+						<li><img src="http://www.club2u.ru/Themes/core/images/star.gif" alt="*" /><img src="http://www.club2u.ru/Themes/core/images/star.gif" alt="*" /><img src="http://www.club2u.ru/Themes/core/images/star.gif" alt="*" /><img src="http://www.club2u.ru/Themes/core/images/star.gif" alt="*" /><img src="http://www.club2u.ru/Themes/core/images/star.gif" alt="*" /></li>
+						<li class="margintop">Карма: +1/-0</li>
+						<li><img src="http://www.club2u.ru/Themes/core/images/useroff.gif" alt="Оффлайн" border="0" style="margin-top: 2px;" /><span class="smalltext"> Оффлайн</span></li>
+						<li>Сообщений: 708</li>
+						<li class="margintop" style="overflow: auto;"><img class="avatar" src="http://www.club2u.ru/index.php?action=dlattach;attach=32;type=avatar" alt="" /></li>
+						<li class="margintop">
+							<ul class="reset nolist">
+								<li><a href="http://www.sugres.ru" title="http://www.sugres.ru" target="_blank" class="new_win"><img src="http://www.club2u.ru/Themes/core/images/www_sm.gif" alt="http://www.sugres.ru" border="0" /></a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div class="postarea">
+					<div class="flow_hidden">
+						<div class="keyinfo">
+							<div class="messageicon"><img src="http://www.club2u.ru/Themes/core/images/post/xx.gif" alt="" border="0" /></div>
+							<h5 id="subject_5706">
+								<a href="http://www.club2u.ru/index.php?topic=266.msg5706#msg5706" rel="nofollow">Бета-версия нового Ю-кабинета.</a>
+							</h5>
+							<div class="smalltext">&#171; <strong>Ответ #3 :</strong> 30 Декабрь 2009, 12:54:07 &#187;</div>
+							<div id="msg_5706_quick_mod"></div>
+						</div>
+					</div>
+					<div class="post">
+						<hr class="hrcolor" width="100%" size="1" />
+						<div class="inner" id="msg_5706">Первый же касяк замечен. На работе проверил Интернет для бизнеса! теперь ЮРИКАМ тоже стали доступны Интернет миксы <img src="http://www.club2u.ru/Smileys/SoLoSMiLeYS1/smiley.gif" alt="&#58;&#41;" title="Улыбающийся" class="smiley" /> а на сайте про это ни слова :-)</div>
+					</div>
+				</div>
+				<div class="moderatorbar">
+					<div class="smalltext floatleft" id="modified_5706">
+					</div>
+					<div class="smalltext largepadding floatright">
+						<img src="http://www.club2u.ru/Themes/core/images/ip.gif" alt="" border="0" />
+						Записан
+					</div>
+					<div class="signature" id="msg_5706_signature">.</div>
+				</div>
+			</div>
+		</div>
+		<div class="bordercolor">
+			<a id="msg5734"></a>
+			<div class="clearfix topborder windowbg largepadding">
+				<div class="floatleft poster">
+					<h4><a href="http://www.club2u.ru/index.php?action=profile;u=104" title="Просмотр профиля FSA">FSA</a></h4>
+					<ul class="reset smalltext" id="msg_5734_extra_info">
+						<li>Администратор</li>
+						<li><img src="http://www.club2u.ru/Themes/core/images/staradmin.gif" alt="*" /><img src="http://www.club2u.ru/Themes/core/images/staradmin.gif" alt="*" /><img src="http://www.club2u.ru/Themes/core/images/staradmin.gif" alt="*" /><img src="http://www.club2u.ru/Themes/core/images/staradmin.gif" alt="*" /><img src="http://www.club2u.ru/Themes/core/images/staradmin.gif" alt="*" /></li>
+						<li class="margintop">Карма: +43/-4</li>
+						<li><img src="http://www.club2u.ru/Themes/core/images/useroff.gif" alt="Оффлайн" border="0" style="margin-top: 2px;" /><span class="smalltext"> Оффлайн</span></li>
+						<li>Сообщений: 1724</li>
+						<li class="margintop">
+							<ul class="reset nolist">
+								<li><a href="http://www.tavda.info/" title="http://www.tavda.info/" target="_blank" class="new_win"><img src="http://www.club2u.ru/Themes/core/images/www_sm.gif" alt="http://www.tavda.info/" border="0" /></a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div class="postarea">
+					<div class="flow_hidden">
+						<div class="keyinfo">
+							<div class="messageicon"><img src="http://www.club2u.ru/Themes/core/images/post/xx.gif" alt="" border="0" /></div>
+							<h5 id="subject_5734">
+								<a href="http://www.club2u.ru/index.php?topic=266.msg5734#msg5734" rel="nofollow">Бета-версия нового Ю-кабинета.</a>
+							</h5>
+							<div class="smalltext">&#171; <strong>Ответ #4 :</strong> 31 Декабрь 2009, 13:30:57 &#187;</div>
+							<div id="msg_5734_quick_mod"></div>
+						</div>
+					</div>
+					<div class="post">
+						<hr class="hrcolor" width="100%" size="1" />
+						<div class="inner" id="msg_5734">А перевод работает? Старый кабинет тоже позволял переводиться куда угодно.</div>
+					</div>
+				</div>
+				<div class="moderatorbar">
+					<div class="smalltext floatleft" id="modified_5734">
+					</div>
+					<div class="smalltext largepadding floatright">
+						<img src="http://www.club2u.ru/Themes/core/images/ip.gif" alt="" border="0" />
+						Записан
+					</div>
+					<div class="signature" id="msg_5734_signature">&quot;Арктида - Нечего терять&quot;. Послушайте лучше симфо версию.</div>
+				</div>
+			</div>
+		</div>
+		<div class="bordercolor">
+			<a id="msg5736"></a>
+			<div class="clearfix topborder windowbg2 largepadding">
+				<div class="floatleft poster">
+					<h4><a href="http://www.club2u.ru/index.php?action=profile;u=45" title="Просмотр профиля MasterTV">MasterTV</a></h4>
+					<ul class="reset smalltext" id="msg_5736_extra_info">
+						<li>Ветеран</li>
+						<li><img src="http://www.club2u.ru/Themes/core/images/star.gif" alt="*" /><img src="http://www.club2u.ru/Themes/core/images/star.gif" alt="*" /><img src="http://www.club2u.ru/Themes/core/images/star.gif" alt="*" /><img src="http://www.club2u.ru/Themes/core/images/star.gif" alt="*" /><img src="http://www.club2u.ru/Themes/core/images/star.gif" alt="*" /></li>
+						<li class="margintop">Карма: +147/-1</li>
+						<li><img src="http://www.club2u.ru/Themes/core/images/useroff.gif" alt="Оффлайн" border="0" style="margin-top: 2px;" /><span class="smalltext"> Оффлайн</span></li>
+						<li>Сообщений: 2381</li>
+						<li class="margintop" style="overflow: auto;"><img class="avatar" src="http://www.club2u.ru/index.php?action=dlattach;attach=8;type=avatar" alt="" /></li>
+						<li class="margintop">Первоуральск</li>
+						<li class="margintop">
+							<ul class="reset nolist">
+								<li><a href="http://vk.com/silev_am" title="в контакте" target="_blank" class="new_win"><img src="http://www.club2u.ru/Themes/core/images/www_sm.gif" alt="в контакте" border="0" /></a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div class="postarea">
+					<div class="flow_hidden">
+						<div class="keyinfo">
+							<div class="messageicon"><img src="http://www.club2u.ru/Themes/core/images/post/xx.gif" alt="" border="0" /></div>
+							<h5 id="subject_5736">
+								<a href="http://www.club2u.ru/index.php?topic=266.msg5736#msg5736" rel="nofollow">Бета-версия нового Ю-кабинета.</a>
+							</h5>
+							<div class="smalltext">&#171; <strong>Ответ #5 :</strong> 31 Декабрь 2009, 13:48:38 &#187;</div>
+							<div id="msg_5736_quick_mod"></div>
+						</div>
+					</div>
+					<div class="post">
+						<hr class="hrcolor" width="100%" size="1" />
+						<div class="inner" id="msg_5736">с сотового на домашний телефон перекинул 120 рублей, быстро и оперативно</div>
+					</div>
+				</div>
+				<div class="moderatorbar">
+					<div class="smalltext floatleft" id="modified_5736">
+					</div>
+					<div class="smalltext largepadding floatright">
+						<img src="http://www.club2u.ru/Themes/core/images/ip.gif" alt="" border="0" />
+						Записан
+					</div>
+					<div class="signature" id="msg_5736_signature">Лужу, паяю...</div>
+				</div>
+			</div>
+		</div>
+		<div class="bordercolor">
+			<a id="msg5792"></a>
+			<div class="clearfix topborder windowbg largepadding">
+				<div class="floatleft poster">
+					<h4><a href="http://www.club2u.ru/index.php?action=profile;u=1188" title="Просмотр профиля Tiesto">Tiesto</a></h4>
+					<ul class="reset smalltext" id="msg_5792_extra_info">
+						<li>Постоялец</li>
+						<li><img src="http://www.club2u.ru/Themes/core/images/star.gif" alt="*" /><img src="http://www.club2u.ru/Themes/core/images/star.gif" alt="*" /><img src="http://www.club2u.ru/Themes/core/images/star.gif" alt="*" /></li>
+						<li class="margintop">Карма: +1/-0</li>
+						<li><img src="http://www.club2u.ru/Themes/core/images/useroff.gif" alt="Оффлайн" border="0" style="margin-top: 2px;" /><span class="smalltext"> Оффлайн</span></li>
+						<li>Сообщений: 214</li>
+						<li class="margintop">
+							<ul class="reset nolist">
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div class="postarea">
+					<div class="flow_hidden">
+						<div class="keyinfo">
+							<div class="messageicon"><img src="http://www.club2u.ru/Themes/core/images/post/xx.gif" alt="" border="0" /></div>
+							<h5 id="subject_5792">
+								<a href="http://www.club2u.ru/index.php?topic=266.msg5792#msg5792" rel="nofollow">Бета-версия нового Ю-кабинета.</a>
+							</h5>
+							<div class="smalltext">&#171; <strong>Ответ #6 :</strong> 02 Январь 2010, 15:33:36 &#187;</div>
+							<div id="msg_5792_quick_mod"></div>
+						</div>
+					</div>
+					<div class="post">
+						<hr class="hrcolor" width="100%" size="1" />
+						<div class="inner" id="msg_5792">Замечен баг, если у Вас тп "Интернет Микс" то на "Бонусы" перейти уже нельзя, в этом ЛК можно)) Только как это работает не ясно))</div>
+					</div>
+				</div>
+				<div class="moderatorbar">
+					<div class="smalltext floatleft" id="modified_5792">
+					</div>
+					<div class="smalltext largepadding floatright">
+						<img src="http://www.club2u.ru/Themes/core/images/ip.gif" alt="" border="0" />
+						Записан
+					</div>
+					<div class="signature" id="msg_5792_signature">U-tel'изатор :|</div>
+				</div>
+			</div>
+		</div>
+		<div class="bordercolor">
+			<a id="msg5881"></a>
+			<div class="clearfix topborder windowbg2 largepadding">
+				<div class="floatleft poster">
+					<h4>}I&#123;eKa</h4>
+					<ul class="reset smalltext" id="msg_5881_extra_info">
+						<li>Гость</li>
+					</ul>
+				</div>
+				<div class="postarea">
+					<div class="flow_hidden">
+						<div class="keyinfo">
+							<div class="messageicon"><img src="http://www.club2u.ru/Themes/core/images/post/xx.gif" alt="" border="0" /></div>
+							<h5 id="subject_5881">
+								<a href="http://www.club2u.ru/index.php?topic=266.msg5881#msg5881" rel="nofollow">Бета-версия нового Ю-кабинета.</a>
+							</h5>
+							<div class="smalltext">&#171; <strong>Ответ #7 :</strong> 04 Январь 2010, 18:36:19 &#187;</div>
+							<div id="msg_5881_quick_mod"></div>
+						</div>
+					</div>
+					<div class="post">
+						<hr class="hrcolor" width="100%" size="1" />
+						<div class="inner" id="msg_5881">Медленно ушли от какой-либо статистики по сессиям. Ни ip адресов, ни продолжительности, ни времени и т.д.</div>
+					</div>
+				</div>
+				<div class="moderatorbar">
+					<div class="smalltext floatleft" id="modified_5881">
+					</div>
+					<div class="smalltext largepadding floatright">
+						<img src="http://www.club2u.ru/Themes/core/images/ip.gif" alt="" border="0" />
+						Записан
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="bordercolor">
+			<a id="msg6061"></a>
+			<div class="clearfix topborder windowbg largepadding">
+				<div class="floatleft poster">
+					<h4>sashtel</h4>
+					<ul class="reset smalltext" id="msg_6061_extra_info">
+						<li>Гость</li>
+					</ul>
+				</div>
+				<div class="postarea">
+					<div class="flow_hidden">
+						<div class="keyinfo">
+							<div class="messageicon"><img src="http://www.club2u.ru/Themes/core/images/post/xx.gif" alt="" border="0" /></div>
+							<h5 id="subject_6061">
+								<a href="http://www.club2u.ru/index.php?topic=266.msg6061#msg6061" rel="nofollow">Бета-версия нового Ю-кабинета.</a>
+							</h5>
+							<div class="smalltext">&#171; <strong>Ответ #8 :</strong> 06 Январь 2010, 06:29:54 &#187;</div>
+							<div id="msg_6061_quick_mod"></div>
+						</div>
+					</div>
+					<div class="post">
+						<hr class="hrcolor" width="100%" size="1" />
+						<div class="inner" id="msg_6061"><div class="quoteheader"><div class="topslice_quote">Цитата: }I{eKa</div></div><blockquote class="bbc_standard_quote">Медленно ушли от какой-либо статистики...</blockquote><div class="quotefooter"><div class="botslice_quote"></div></div>А почему кстати??? Мне как абоненту было бы понятнее и проще следить за этим делом...<br />Чем морочиться &nbsp;с "юзергейтами" и ими подобными...</div>
+					</div>
+				</div>
+				<div class="moderatorbar">
+					<div class="smalltext floatleft" id="modified_6061">
+					</div>
+					<div class="smalltext largepadding floatright">
+						<img src="http://www.club2u.ru/Themes/core/images/ip.gif" alt="" border="0" />
+						Записан
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="bordercolor">
+			<a id="msg6064"></a>
+			<div class="clearfix topborder windowbg2 largepadding">
+				<div class="floatleft poster">
+					<h4><a href="http://www.club2u.ru/index.php?action=profile;u=416" title="Просмотр профиля LPS">LPS</a></h4>
+					<ul class="reset smalltext" id="msg_6064_extra_info">
+						<li>Ветеран</li>
+						<li><img src="http://www.club2u.ru/Themes/core/images/star.gif" alt="*" /><img src="http://www.club2u.ru/Themes/core/images/star.gif" alt="*" /><img src="http://www.club2u.ru/Themes/core/images/star.gif" alt="*" /><img src="http://www.club2u.ru/Themes/core/images/star.gif" alt="*" /><img src="http://www.club2u.ru/Themes/core/images/star.gif" alt="*" /></li>
+						<li class="margintop">Карма: +2/-0</li>
+						<li><img src="http://www.club2u.ru/Themes/core/images/useroff.gif" alt="Оффлайн" border="0" style="margin-top: 2px;" /><span class="smalltext"> Оффлайн</span></li>
+						<li>Сообщений: 1558</li>
+						<li class="margintop">
+							<ul class="reset nolist">
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div class="postarea">
+					<div class="flow_hidden">
+						<div class="keyinfo">
+							<div class="messageicon"><img src="http://www.club2u.ru/Themes/core/images/post/xx.gif" alt="" border="0" /></div>
+							<h5 id="subject_6064">
+								<a href="http://www.club2u.ru/index.php?topic=266.msg6064#msg6064" rel="nofollow">Бета-версия нового Ю-кабинета.</a>
+							</h5>
+							<div class="smalltext">&#171; <strong>Ответ #9 :</strong> 06 Январь 2010, 09:39:06 &#187;</div>
+							<div id="msg_6064_quick_mod"></div>
+						</div>
+					</div>
+					<div class="post">
+						<hr class="hrcolor" width="100%" size="1" />
+						<div class="inner" id="msg_6064"><div class="quoteheader"><div class="topslice_quote">Цитата: "sashtel"</div></div><blockquote class="bbc_standard_quote">А почему кстати?</blockquote><div class="quotefooter"><div class="botslice_quote"></div></div>Ютелу видимо есть что скрывать от абонентов.</div>
+					</div>
+				</div>
+				<div class="moderatorbar">
+					<div class="smalltext floatleft" id="modified_6064">
+					</div>
+					<div class="smalltext largepadding floatright">
+						<img src="http://www.club2u.ru/Themes/core/images/ip.gif" alt="" border="0" />
+						Записан
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="bordercolor">
+			<a id="msg6071"></a>
+			<div class="clearfix topborder windowbg largepadding">
+				<div class="floatleft poster">
+					<h4>Dyadya Aleksey</h4>
+					<ul class="reset smalltext" id="msg_6071_extra_info">
+						<li>Гость</li>
+					</ul>
+				</div>
+				<div class="postarea">
+					<div class="flow_hidden">
+						<div class="keyinfo">
+							<div class="messageicon"><img src="http://www.club2u.ru/Themes/core/images/post/xx.gif" alt="" border="0" /></div>
+							<h5 id="subject_6071">
+								<a href="http://www.club2u.ru/index.php?topic=266.msg6071#msg6071" rel="nofollow">Бета-версия нового Ю-кабинета.</a>
+							</h5>
+							<div class="smalltext">&#171; <strong>Ответ #10 :</strong> 06 Январь 2010, 12:11:53 &#187;</div>
+							<div id="msg_6071_quick_mod"></div>
+						</div>
+					</div>
+					<div class="post">
+						<hr class="hrcolor" width="100%" size="1" />
+						<div class="inner" id="msg_6071">с тестового этот кобенед не работает</div>
+					</div>
+				</div>
+				<div class="moderatorbar">
+					<div class="smalltext floatleft" id="modified_6071">
+					</div>
+					<div class="smalltext largepadding floatright">
+						<img src="http://www.club2u.ru/Themes/core/images/ip.gif" alt="" border="0" />
+						Записан
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="bordercolor">
+			<a id="msg6108"></a>
+			<div class="clearfix topborder windowbg2 largepadding">
+				<div class="floatleft poster">
+					<h4><a href="http://www.club2u.ru/index.php?action=profile;u=2401" title="Просмотр профиля Alllgator">Alllgator</a></h4>
+					<ul class="reset smalltext" id="msg_6108_extra_info">
+						<li>Ветеран</li>
+						<li><img src="http://www.club2u.ru/Themes/core/images/star.gif" alt="*" /><img src="http://www.club2u.ru/Themes/core/images/star.gif" alt="*" /><img src="http://www.club2u.ru/Themes/core/images/star.gif" alt="*" /><img src="http://www.club2u.ru/Themes/core/images/star.gif" alt="*" /><img src="http://www.club2u.ru/Themes/core/images/star.gif" alt="*" /></li>
+						<li class="margintop">Карма: +9/-0</li>
+						<li><img src="http://www.club2u.ru/Themes/core/images/useroff.gif" alt="Оффлайн" border="0" style="margin-top: 2px;" /><span class="smalltext"> Оффлайн</span></li>
+						<li>Сообщений: 708</li>
+						<li class="margintop" style="overflow: auto;"><img class="avatar" src="http://www.club2u.ru/index.php?action=dlattach;attach=70;type=avatar" alt="" /></li>
+						<li class="margintop">
+							<ul class="reset nolist">
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div class="postarea">
+					<div class="flow_hidden">
+						<div class="keyinfo">
+							<div class="messageicon"><img src="http://www.club2u.ru/Themes/core/images/post/xx.gif" alt="" border="0" /></div>
+							<h5 id="subject_6108">
+								<a href="http://www.club2u.ru/index.php?topic=266.msg6108#msg6108" rel="nofollow">Бета-версия нового Ю-кабинета.</a>
+							</h5>
+							<div class="smalltext">&#171; <strong>Ответ #11 :</strong> 06 Январь 2010, 19:39:18 &#187;</div>
+							<div id="msg_6108_quick_mod"></div>
+						</div>
+					</div>
+					<div class="post">
+						<hr class="hrcolor" width="100%" size="1" />
+						<div class="inner" id="msg_6108">Этот кабинет не работает с тестового наверное потому что он теститься,а потом заработает. Вот мне непонятно, они сделали новый &nbsp;кабинет а старый продолжают модернизировать, если честно старый юкабинет мне нравиться почему то больше, там все удобней,понятней, единственный недостаток это нельзя одновременно следить за всеми услугами, как в новом кабинете. Буду надеяться, что люди не останутся в стороне и будут писать разрабам &nbsp;замечания. Я уже накалякал.</div>
+					</div>
+				</div>
+				<div class="moderatorbar">
+					<div class="smalltext floatleft" id="modified_6108">
+					</div>
+					<div class="smalltext largepadding floatright">
+						<img src="http://www.club2u.ru/Themes/core/images/ip.gif" alt="" border="0" />
+						Записан
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="bordercolor">
+			<a id="msg6117"></a>
+			<div class="clearfix topborder windowbg largepadding">
+				<div class="floatleft poster">
+					<h4>Dyadya Aleksey</h4>
+					<ul class="reset smalltext" id="msg_6117_extra_info">
+						<li>Гость</li>
+					</ul>
+				</div>
+				<div class="postarea">
+					<div class="flow_hidden">
+						<div class="keyinfo">
+							<div class="messageicon"><img src="http://www.club2u.ru/Themes/core/images/post/xx.gif" alt="" border="0" /></div>
+							<h5 id="subject_6117">
+								<a href="http://www.club2u.ru/index.php?topic=266.msg6117#msg6117" rel="nofollow">Бета-версия нового Ю-кабинета.</a>
+							</h5>
+							<div class="smalltext">&#171; <strong>Ответ #12 :</strong> 06 Январь 2010, 20:43:44 &#187;</div>
+							<div id="msg_6117_quick_mod"></div>
+						</div>
+					</div>
+					<div class="post">
+						<hr class="hrcolor" width="100%" size="1" />
+						<div class="inner" id="msg_6117">а или ссылка кривая в первом топике?<br /><a href="https://www.ucabinet.u-tel.ru/work.html" class="bbc_link" target="_blank">https://www.ucabinet.u-tel.ru/work.html</a> вот сюда щас временами предлагает перейти из старого кабинета <a href="https://www.cabinet.u-tel.ru/cgi-bin/clients/login" class="bbc_link" target="_blank">https://www.cabinet.u-tel.ru/cgi-bin/clients/login</a><br /><br />хоть с тестового и пытается зайти, но пароль не канает</div>
+					</div>
+				</div>
+				<div class="moderatorbar">
+					<div class="smalltext floatleft" id="modified_6117">
+					</div>
+					<div class="smalltext largepadding floatright">
+						<img src="http://www.club2u.ru/Themes/core/images/ip.gif" alt="" border="0" />
+						Записан
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="bordercolor">
+			<a id="msg6123"></a>
+			<div class="clearfix topborder windowbg2 largepadding">
+				<div class="floatleft poster">
+					<h4><a href="http://www.club2u.ru/index.php?action=profile;u=5" title="Просмотр профиля remalloc">remalloc</a></h4>
+					<ul class="reset smalltext" id="msg_6123_extra_info">
+						<li>Администратор</li>
+						<li><img src="http://www.club2u.ru/Themes/core/images/staradmin.gif" alt="*" /><img src="http://www.club2u.ru/Themes/core/images/staradmin.gif" alt="*" /><img src="http://www.club2u.ru/Themes/core/images/staradmin.gif" alt="*" /><img src="http://www.club2u.ru/Themes/core/images/staradmin.gif" alt="*" /><img src="http://www.club2u.ru/Themes/core/images/staradmin.gif" alt="*" /></li>
+						<li class="margintop">Карма: +29/-2</li>
+						<li><img src="http://www.club2u.ru/Themes/core/images/useroff.gif" alt="Оффлайн" border="0" style="margin-top: 2px;" /><span class="smalltext"> Оффлайн</span></li>
+						<li>Сообщений: 3941</li>
+						<li class="margintop" style="overflow: auto;"><img class="avatar" src="http://www.club2u.ru/index.php?action=dlattach;attach=2;type=avatar" alt="" /></li>
+						<li class="margintop">
+							<ul class="reset nolist">
+								<li><a href="http://кириллширшов.рф/" title="http://кириллширшов.рф/" target="_blank" class="new_win"><img src="http://www.club2u.ru/Themes/core/images/www_sm.gif" alt="http://кириллширшов.рф/" border="0" /></a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div class="postarea">
+					<div class="flow_hidden">
+						<div class="keyinfo">
+							<div class="messageicon"><img src="http://www.club2u.ru/Themes/core/images/post/xx.gif" alt="" border="0" /></div>
+							<h5 id="subject_6123">
+								<a href="http://www.club2u.ru/index.php?topic=266.msg6123#msg6123" rel="nofollow">Бета-версия нового Ю-кабинета.</a>
+							</h5>
+							<div class="smalltext">&#171; <strong>Ответ #13 :</strong> 06 Январь 2010, 21:40:57 &#187;</div>
+							<div id="msg_6123_quick_mod"></div>
+						</div>
+					</div>
+					<div class="post">
+						<hr class="hrcolor" width="100%" size="1" />
+						<div class="inner" id="msg_6123">Скажу прямо и компетентно: они задолбали со своими новыми кабинетами. Сколько их ещё будет? <br /><a href="https://mail.urtc.ru/cabinet/" class="bbc_link" target="_blank">https://mail.urtc.ru/cabinet/</a> - раз<br /><a href="https://www.cabinet.u-tel.ru" class="bbc_link" target="_blank">https://www.cabinet.u-tel.ru</a>/ - два<br /><a href="https://www.ucabinet.u-tel.ru" class="bbc_link" target="_blank">https://www.ucabinet.u-tel.ru</a>/ - три<br /><a href="https://www.ucabinet-b.u-tel.ru" class="bbc_link" target="_blank">https://www.ucabinet-b.u-tel.ru</a>/ - четыре. Это за один(!) год.<br /><br />Простите, у них с головой всё в порядке? Мне просто непонятно...</div>
+					</div>
+				</div>
+				<div class="moderatorbar">
+					<div class="smalltext floatleft" id="modified_6123">
+					</div>
+					<div class="smalltext largepadding floatright">
+						<img src="http://www.club2u.ru/Themes/core/images/ip.gif" alt="" border="0" />
+						Записан
+					</div>
+					<div class="signature" id="msg_6123_signature">Say, write, talk and f**k right folk<br /><br />Объявляю неделю некробаннинга!</div>
+				</div>
+			</div>
+		</div>
+		<div class="bordercolor">
+			<a id="msg6216"></a>
+			<div class="clearfix topborder windowbg largepadding">
+				<div class="floatleft poster">
+					<h4><a href="http://www.club2u.ru/index.php?action=profile;u=2401" title="Просмотр профиля Alllgator">Alllgator</a></h4>
+					<ul class="reset smalltext" id="msg_6216_extra_info">
+						<li>Ветеран</li>
+						<li><img src="http://www.club2u.ru/Themes/core/images/star.gif" alt="*" /><img src="http://www.club2u.ru/Themes/core/images/star.gif" alt="*" /><img src="http://www.club2u.ru/Themes/core/images/star.gif" alt="*" /><img src="http://www.club2u.ru/Themes/core/images/star.gif" alt="*" /><img src="http://www.club2u.ru/Themes/core/images/star.gif" alt="*" /></li>
+						<li class="margintop">Карма: +9/-0</li>
+						<li><img src="http://www.club2u.ru/Themes/core/images/useroff.gif" alt="Оффлайн" border="0" style="margin-top: 2px;" /><span class="smalltext"> Оффлайн</span></li>
+						<li>Сообщений: 708</li>
+						<li class="margintop" style="overflow: auto;"><img class="avatar" src="http://www.club2u.ru/index.php?action=dlattach;attach=70;type=avatar" alt="" /></li>
+						<li class="margintop">
+							<ul class="reset nolist">
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div class="postarea">
+					<div class="flow_hidden">
+						<div class="keyinfo">
+							<div class="messageicon"><img src="http://www.club2u.ru/Themes/core/images/post/xx.gif" alt="" border="0" /></div>
+							<h5 id="subject_6216">
+								<a href="http://www.club2u.ru/index.php?topic=266.msg6216#msg6216" rel="nofollow">Бета-версия нового Ю-кабинета.</a>
+							</h5>
+							<div class="smalltext">&#171; <strong>Ответ #14 :</strong> 08 Январь 2010, 13:05:08 &#187;</div>
+							<div id="msg_6216_quick_mod"></div>
+						</div>
+					</div>
+					<div class="post">
+						<hr class="hrcolor" width="100%" size="1" />
+						<div class="inner" id="msg_6216"><div class="quoteheader"><div class="topslice_quote">Цитата: remalloc</div></div><blockquote class="bbc_standard_quote">Скажу прямо и компетентно: они задолбали со своими новыми кабинетами. Сколько их ещё будет? <br /><a href="https://mail.urtc.ru/cabinet/" class="bbc_link" target="_blank">https://mail.urtc.ru/cabinet/</a> - раз<br /><a href="https://www.cabinet.u-tel.ru" class="bbc_link" target="_blank">https://www.cabinet.u-tel.ru</a>/ - два<br /><a href="https://www.ucabinet.u-tel.ru" class="bbc_link" target="_blank">https://www.ucabinet.u-tel.ru</a>/ - три<br /><a href="https://www.ucabinet-b.u-tel.ru" class="bbc_link" target="_blank">https://www.ucabinet-b.u-tel.ru</a>/ - четыре. Это за один(!) год.<br /><br />Простите, у них с головой всё в порядке? Мне просто непонятно...</blockquote><div class="quotefooter"><div class="botslice_quote"></div></div>Они просто его еще дорабатывают, т.к этот весь биллинг для ютела новшество, но признаться могли бы и побыстрее с этим делом разобраться.</div>
+					</div>
+				</div>
+				<div class="moderatorbar">
+					<div class="smalltext floatleft" id="modified_6216">
+					</div>
+					<div class="smalltext largepadding floatright">
+						<img src="http://www.club2u.ru/Themes/core/images/ip.gif" alt="" border="0" />
+						Записан
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+<a id="lastPost"></a>
+<div class="clearfix marginbottom" id="postbuttons_lower">
+	<div class="nav floatright">
+		<div class="buttonlist">
+			<ul class="reset clearfix">
+				<li class="last"><a class="button_strip_print" href="http://www.club2u.ru/index.php?action=printpage;topic=266.0" rel="new_win nofollow"><span>Печать</span></a></li>
+			</ul>
+		</div></div>
+	<div class="middletext floatleft">Страницы: [<strong>1</strong>] <a class="navPages" href="http://www.club2u.ru/index.php?topic=266.15">2</a> <a class="navPages" href="http://www.club2u.ru/index.php?topic=266.30">3</a> <a class="navPages" href="http://www.club2u.ru/index.php?topic=266.45">4</a>   &nbsp;&nbsp;<a href="#top"><strong>Вверх</strong></a></div>
+	<div class="clear"><a href="http://www.club2u.ru/index.php?topic=266.0;prev_next=prev#new">&laquo; предыдущая тема</a> <a href="http://www.club2u.ru/index.php?topic=266.0;prev_next=next#new">следующая тема &raquo;</a></div>
+</div>
+	<ul class="linktree" id="linktree_lower">
+		<li>
+			<a href="http://www.club2u.ru/index.php"><span>Твой клуб</span></a> &gt;
+		</li>
+		<li>
+			<a href="http://www.club2u.ru/index.php#c2"><span>Вопросы по услугам Utel: Доступ в Интернет, "Wi-Fi от Utel", "Utel.TV"</span></a> &gt;
+		</li>
+		<li>
+			<a href="http://www.club2u.ru/index.php?board=4.0"><span>"Домашний интернет" от Utel</span></a> &gt;
+		</li>
+		<li>
+			<a href="http://www.club2u.ru/index.php?board=8.0"><span>Оплата услуг, личный кабинет</span></a> &gt;
+		</li>
+		<li class="last">Тема: 
+			<a href="http://www.club2u.ru/index.php?topic=266.0"><span>Бета-версия нового Ю-кабинета.</span></a>
+		</li>
+	</ul>
+<div id="moderationbuttons" class="clearfix"></div>
+<div class="tborder">
+	<div class="titlebg2" style="padding: 4px;" align="right" id="display_jump_to">&nbsp;</div>
+</div><br />
+<script type="text/javascript" src="http://www.club2u.ru/Themes/default/scripts/topic.js"></script>
+<script type="text/javascript"><!-- // --><![CDATA[
+	var oQuickReply = new QuickReply({
+		bDefaultCollapsed: false,
+		iTopicId: 266,
+		iStart: 0,
+		sScriptUrl: smf_scripturl,
+		sImagesUrl: "http://www.club2u.ru/Themes/core/images",
+		sContainerId: "quickReplyOptions",
+		sImageId: "quickReplyExpand",
+		sImageCollapsed: "collapse.gif",
+		sImageExpanded: "expand.gif",
+		sJumpAnchor: "quickreply"
+	});
+	if ('XMLHttpRequest' in window)
+	{
+		var oQuickModify = new QuickModify({
+			sScriptUrl: smf_scripturl,
+			bShowModify: true,
+			iTopicId: 266,
+			sTemplateBodyEdit: '\n\t\t\t\t<div id="quick_edit_body_container" style="width: 90%">\n\t\t\t\t\t<div id="error_box" style="padding: 4px;" class="error"><' + '/div>\n\t\t\t\t\t<textarea class="editor" name="message" rows="12" style="width: 100%;  margin-bottom: 10px;" tabindex="1">%body%<' + '/textarea><br />\n\t\t\t\t\t<input type="hidden" name="d5929be8c80a" value="d42ec52fda567cd26ecb67fad67c2eb8" />\n\t\t\t\t\t<input type="hidden" name="topic" value="266" />\n\t\t\t\t\t<input type="hidden" name="msg" value="%msg_id%" />\n\t\t\t\t\t<div class="righttext">\n\t\t\t\t\t\t<input type="submit" name="post" value="Сохранить" tabindex="2" onclick="return oQuickModify.modifySave(\'d42ec52fda567cd26ecb67fad67c2eb8\', \'d5929be8c80a\');" accesskey="s" class="button_submit" />&nbsp;&nbsp;<input type="submit" name="cancel" value="Отменить" tabindex="3" onclick="return oQuickModify.modifyCancel();" class="button_submit" />\n\t\t\t\t\t<' + '/div>\n\t\t\t\t<' + '/div>',
+			sTemplateSubjectEdit: '<input type="text" style="width: 90%" name="subject" value="%subject%" size="80" maxlength="80" tabindex="4" class="input_text" />',
+			sTemplateBodyNormal: '%body%',
+			sTemplateSubjectNormal: '<a hr'+'ef="http://www.club2u.ru/index.php'+'?topic=266.msg%msg_id%#msg%msg_id%" rel="nofollow">%subject%<' + '/a>',
+			sTemplateTopSubject: 'Тема: %subject% &nbsp;(Прочитано 10815 раз)',
+			sErrorBorderStyle: '1px solid red'
+		});
+
+		aJumpTo[aJumpTo.length] = new JumpTo({
+			sContainerId: "display_jump_to",
+			sJumpToTemplate: "<label class=\"smalltext\" for=\"%select_id%\">Перейти в:<" + "/label> %dropdown_list%",
+			iCurBoardId: 8,
+			iCurBoardChildLevel: 1,
+			sCurBoardName: "Оплата услуг, личный кабинет",
+			sBoardChildLevelIndicator: "==",
+			sBoardPrefix: "=> ",
+			sCatSeparator: "-----------------------------",
+			sCatPrefix: "",
+			sGoButtonLabel: "да"
+		});
+
+		aIconLists[aIconLists.length] = new IconList({
+			sBackReference: "aIconLists[" + aIconLists.length + "]",
+			sIconIdPrefix: "msg_icon_",
+			sScriptUrl: smf_scripturl,
+			bShowModify: true,
+			iBoardId: 8,
+			iTopicId: 266,
+			sSessionId: "d42ec52fda567cd26ecb67fad67c2eb8",
+			sSessionVar: "d5929be8c80a",
+			sLabelIconList: "Иконка сообщения",
+			sBoxBackground: "transparent",
+			sBoxBackgroundHover: "#ffffff",
+			iBoxBorderWidthHover: 1,
+			sBoxBorderColorHover: "#adadad" ,
+			sContainerBackground: "#ffffff",
+			sContainerBorder: "1px solid #adadad",
+			sItemBorder: "1px solid #ffffff",
+			sItemBorderHover: "1px dotted gray",
+			sItemBackground: "transparent",
+			sItemBackgroundHover: "#e0e0f0"
+		});
+	}
+	// ]]></script>
+			<script type="text/javascript"><!-- // --><![CDATA[
+				var verificationpostHandle = new smfCaptcha("http://www.club2u.ru/index.php?action=verificationcode;vid=post;rand=11871fdad8e74df93a7ca0fca23c18b7", "post", 1);
+			// ]]></script><center><br/><script type="text/javascript"><!--
+google_ad_client = "ca-pub-6651731503917348";
+/* В строку */
+google_ad_slot = "9038298631";
+google_ad_width = 468;
+google_ad_height = 15;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></center>
+	</div>
+	<div id="footerarea" class="headerpadding topmargin clearfix">
+		<ul class="reset smalltext">
+			<li class="copyright">
+			<span class="smalltext" style="display: inline; visibility: visible; font-family: Verdana, Arial, sans-serif;"><a href="http://www.club2u.ru/index.php?action=credits" title="Simple Machines Forum" target="_blank" class="new_win">SMF 2.0.2</a> |
+ <a href="http://www.simplemachines.org/about/smf/license.php" title="License" target="_blank" class="new_win">SMF &copy; 2011</a>, <a href="http://www.simplemachines.org" title="Simple Machines" target="_blank" class="new_win">Simple Machines</a><br /><span class="smalltext"><a href="http://www.smfads.com" target="_blank">SMFAds</a> for <a href="http://www.createaforum.com" title="Forum Hosting">Free Forums</a></span>
+			</span></li>
+			<li><a id="button_xhtml" href="http://validator.w3.org/check?uri=referer" target="_blank" class="new_win" title="Valid XHTML 1.0!"><span>XHTML</span></a></li>
+			<li><a id="button_rss" href="http://www.club2u.ru/index.php?action=.xml;type=rss" class="new_win"><span>RSS</span></a></li>
+			<li class="last"><a id="button_wap2" href="http://www.club2u.ru/index.php?wap2" class="new_win"><span>Мобильная версия</span></a></li>
+		</ul>
+	</div>
+</div>
+</body></html>
