@@ -13,6 +13,11 @@
             "email": "fsa@tavda.info"
         }
     ],
+    "scripts": {
+        "test": [
+            "phpunit --testdox tests"
+        ]
+    },
     "require": {
         "paquettg/php-html-parser": "^3.1"
     },
