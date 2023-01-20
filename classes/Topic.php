@@ -94,7 +94,6 @@ class Topic
 
     private function getTopicMessagesV2()
     {
-        return [];
         $data = [];
         $this->dom->filter('#quickModForm')->children('table > tr > td')->each(function ($posts) use (&$data) {
             $posts->children('table > tr > td')->each(function ($post) use (&$data) {
@@ -107,8 +106,25 @@ class Topic
         return $data;
     }
 
-    private function getTopicDataV2($post){
-        return (object) ['test' => $post->children('table')->html()];
+    private function getTopicDataV2($post_dom){
+        $table = $post_dom->children('table');
+        $user_el = $table->filter('tr')->filter('td')->filter('a');
+        $post = $table->filter('.post')->html();
+        //TODO: цитаты
+        $icon = basename($table->filter('tr')->filter('td')->eq(1)->filter('table')->filter('tr')->filter('td')->filter('img')->attr('src'));
+        $subject = $table->filter('tr')->filter('td')->eq(1)->filter('table')->filter('tr')->filter('td')->eq(1)->filter('div > a')->html();
+        $id = trim($table->filter('tr')->filter('td')->eq(1)->filter('table')->filter('tr')->filter('td')->eq(1)->filter('div')->attr('id'), 'subject_');
+        preg_match('/« Ответ #(.*) : (.*) »/', $table->filter('tr')->filter('td')->eq(1)->filter('table')->filter('tr')->filter('td')->eq(1)->filter('div')->eq(1)->text(), $post_info);
+        $posted = Tools::getDatetimeFromText($post_info[2]);
+        return (object) [
+            'id' => intval($id),
+            'post' => $post,
+            'poster_name' => $user_el->text(),
+            'member_id' => Tools::getUserIdFromUrl($user_el->attr('href')),
+            'icon' => trim($icon, '.gif'),
+            'posted' => $posted,
+            'subject' => $subject
+        ];
     }
 
 }
