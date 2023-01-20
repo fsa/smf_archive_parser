@@ -31,7 +31,6 @@ final class TopicTest extends TestCase
             ],
             $result266
         );
-
         $result311 = $this->topic311->getTopicInfo();
         $this->assertEquals(
             [
@@ -48,9 +47,16 @@ final class TopicTest extends TestCase
         $result266 = $this->topic266->getTopicMessages();
         $this->assertIsArray($result266);
         $this->assertGreaterThan(0, count($result266));
+        foreach ($result266 as $item) {
+            $this->assertObjectHasAttribute('id', $item);
+        }
 
         $result311 = $this->topic311->getTopicMessages();
         $this->assertIsArray($result311);
         $this->assertGreaterThan(0, count($result311));
+        foreach ($result311 as $item) {
+            $this->assertObjectHasAttribute('id', $item);
+        }
+
     }
 }
