@@ -99,7 +99,7 @@ class Board
             $h3_el = $category->filter('h3');
             $cat_id = intval(trim($h3_el->filter('a')->attr('id'), 'c'));
             $root_id = null;
-            $category->filter('table')->eq(0)->filter('tr')->each(function ($board) use ($root_id, &$result, $cat_id) {
+            $category->filter('table')->eq(0)->filter('tr')->each(function ($board) use (&$result, &$root_id, $cat_id) {
                 $td_parts = $board->filter('td');
                 switch (count($td_parts)) {
                     case 1:
@@ -137,6 +137,7 @@ class Board
     {
         $td_icon = $el->eq(0)->filter('a');
         $id = Tools::getBoardIdFromUrl($td_icon->attr('href'));
+        preg_match('/(\d+) Сообщений (\d+) Тем/', $el->eq(2)->text(), $counts);
         return [
             $id =>
             (object)
@@ -145,6 +146,8 @@ class Board
                 'category_id' => $cat_id,
                 'name' => $el->eq(1)->filter('a')->html(),
                 'description' => $el->eq(1)->filter('p')->html(),
+                'num_topics' => $counts[2],
+                'num_posts' => $counts[1],
             ]
         ];
     }

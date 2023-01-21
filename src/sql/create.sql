@@ -13,7 +13,8 @@ CREATE TABLE boards (
   board_order int,
   name text NOT NULL,
   description text,
-  icon varchar(20)
+  num_topics int,
+	num_posts int
 );
 CREATE INDEX boards_order ON boards USING btree (board_order);
 
