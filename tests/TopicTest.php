@@ -8,6 +8,7 @@ final class TopicTest extends TestCase
 
     private $topic266;
     private $topic311;
+    private $topic722;
 
     protected function setUp(): void
     {
@@ -17,6 +18,8 @@ final class TopicTest extends TestCase
         $this->topic311 = new Topic;
         $this->topic311->loadFromFile(__DIR__ . '/archive/index.php?topic=311.msg19476');
 
+        $this->topic722 = new Topic;
+        $this->topic722->loadFromFile(__DIR__ . '/archive/topic,722.0.html');
         // archive/club2u.ru/index.php/topic,467.0.html
     }
 
@@ -40,6 +43,15 @@ final class TopicTest extends TestCase
             ],
             $result311
         );
+        $result722 = $this->topic722->getTopicInfo();
+        $this->assertEquals(
+            [
+                'id' => 722,
+                'board_id' => 5,
+                'title' => "Новый плейлист - 2010!"
+            ],
+            $result722
+        );
     }
 
     public function testGetTopicMessages()
@@ -58,5 +70,11 @@ final class TopicTest extends TestCase
             $this->assertObjectHasAttribute('id', $item);
         }
 
+        $result722 = $this->topic722->getTopicMessages();
+        $this->assertIsArray($result722);
+        $this->assertGreaterThan(0, count($result722));
+        foreach ($result722 as $item) {
+            $this->assertObjectHasAttribute('id', $item);
+        }
     }
 }
