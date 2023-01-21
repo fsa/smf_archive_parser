@@ -60,6 +60,7 @@ CREATE TABLE topics (
   title text,
   num_replies int,
   num_views int,
+  locked boolean,
   last_modified timestamptz
 );
 

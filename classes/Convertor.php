@@ -59,10 +59,10 @@ class Convertor
         $this->upsertUsers($users);
 
         //var_dump($topics);
-        $stmt = $this->pdo->prepare('INSERT INTO topics (id, is_sticky, board_id, title, started_member_id, started_member_name, updated_member_id, updated_member_name, num_replies, num_views, last_modified) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ON CONFLICT (id) DO NOTHING');
+        $stmt = $this->pdo->prepare('INSERT INTO topics (id, is_sticky, board_id, title, started_member_id, started_member_name, updated_member_id, updated_member_name, num_replies, num_views, locked, last_modified) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ON CONFLICT (id) DO NOTHING');
         echo "  Найдено топиков: " . count($topics) . PHP_EOL;
         foreach ($topics as $topic) {
-            $stmt->execute([$topic->id, $topic->sticky ? 't' : 'f', $board_id, $topic->title, $topic->user_id, $topic->username, $topic->updated_member_id, $topic->updated_member_name, $topic->num_replies, $topic->num_views, $topic->last_modified]);
+            $stmt->execute([$topic->id, $topic->sticky ? 't' : 'f', $board_id, $topic->title, $topic->user_id, $topic->username, $topic->updated_member_id, $topic->updated_member_name, $topic->num_replies, $topic->num_views, $topic->locked ? 't' : 'f', $topic->last_modified]);
             if ($stmt->rowCount() > 0) {
                 echo "  Добавлен топик №{$topic->id}: {$topic->title}" . PHP_EOL;
             }
