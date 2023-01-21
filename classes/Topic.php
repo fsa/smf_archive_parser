@@ -114,8 +114,8 @@ class Topic
         $icon = basename($table->filter('tr')->filter('td')->eq(1)->filter('table')->filter('tr')->filter('td')->filter('img')->attr('src'));
         $subject = $table->filter('tr')->filter('td')->eq(1)->filter('table')->filter('tr')->filter('td')->eq(1)->filter('div > a')->html();
         $id = trim($table->filter('tr')->filter('td')->eq(1)->filter('table')->filter('tr')->filter('td')->eq(1)->filter('div')->attr('id'), 'subject_');
-        preg_match('/« Ответ #(.*) : (.*) »/', $table->filter('tr')->filter('td')->eq(1)->filter('table')->filter('tr')->filter('td')->eq(1)->filter('div')->eq(1)->text(), $post_info);
-        $posted = Tools::getDatetimeFromText($post_info[2]);
+        preg_match('/: (.*) »/', $table->filter('tr')->filter('td')->eq(1)->filter('table')->filter('tr')->filter('td')->eq(1)->filter('div')->eq(1)->text(), $post_info);
+        $posted = Tools::getDatetimeFromText($post_info[1]);
         return (object) [
             'id' => intval($id),
             'post' => $post,
