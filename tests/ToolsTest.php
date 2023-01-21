@@ -32,4 +32,11 @@ final class ToolsTest extends TestCase
         $this->assertEquals(date('c', strtotime('2010-03-01 15:54:11')), Tools::getDatetimeFromText('01 Март 2010, 15:54:11'));
         $this->assertEquals(date('c', strtotime('2016-08-10 08:41:52')), Tools::getDatetimeFromText('10 Август 2016, 08:41:52'));
     }
+
+    public function testQuoteReplace()
+    {
+        $src = '<div class="quoteheader"><div class="topslice_quote">Цитата: Ваня</div></div><blockquote class="bbc_standard_quote">место</blockquote><div class="quotefooter"><div class="botslice_quote"></div></div>пусть будет Сосьва))<br><div class="quoteheader"><div class="topslice_quote">Цитата: Ваня</div></div><blockquote class="bbc_standard_quote">время</blockquote><div class="quotefooter"><div class="botslice_quote"></div></div>первая суббота после ближайшей пятницы, 13';
+        $res = '<blockquote quote="Ваня">место</blockquote>пусть будет Сосьва))<br><blockquote quote="Ваня">время</blockquote>первая суббота после ближайшей пятницы, 13';
+        $this->assertEquals($res, Tools::quoteReplace($src));
+    }
 }

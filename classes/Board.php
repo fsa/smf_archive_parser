@@ -51,7 +51,16 @@ class Board
         $a_title = $td->eq(2)->filter('a');
         $result['title'] = $a_title->html();
         $result['id'] = Tools::getTopicIdFromUrl($a_title->attr('href'));
-        $result['sticky'] = count($td->eq(2)->filter('img.floatright'))>0;
+        // TODO: учесть заблокированные темы
+        $icon = $td->eq(2)->filter('img.floatright');
+        if (count($icon) > 0) {
+            $icon_id = $icon->attr('id');
+            $result['sticky'] = str_starts_with($icon_id, 'sticky');
+            $result['locked'] = str_starts_with($icon_id, 'lock');
+        } else {
+            $result['sticky'] = false;
+            $result['locked'] = false;
+        }
         # 3
         $a_user = $td->eq(3)->filter('a');
         if (count($a_user) > 0) {
@@ -83,7 +92,7 @@ class Board
     public function getBoardsCategories()
     {
         $result = [];
-        $this->dom->filter('.categoryframe')->each(function ($category) use (&$result){
+        $this->dom->filter('.categoryframe')->each(function ($category) use (&$result) {
             $h3_el = $category->filter('h3');
             $id = intval(trim($h3_el->filter('a')->attr('id'), 'c'));
             $name = trim(strip_tags($h3_el->html()));
@@ -95,7 +104,7 @@ class Board
     public function getBoards()
     {
         $result = [];
-        $this->dom->filter('.categoryframe')->each(function ($category) use (&$result){
+        $this->dom->filter('.categoryframe')->each(function ($category) use (&$result) {
             $h3_el = $category->filter('h3');
             $cat_id = intval(trim($h3_el->filter('a')->attr('id'), 'c'));
             $root_id = null;
