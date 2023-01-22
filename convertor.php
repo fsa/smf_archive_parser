@@ -4,7 +4,8 @@ use FSA\SMF\App;
 
 require_once "vendor/autoload.php";
 $path = 'archive/'. App::getConfig('SITE_URL').'/';
-$convertor = App::getConvertor();
+$convertor = App::getConvertor(App::getConfig('DATABASE_URL'), App::getConfig('TIMEZONE'));
+
 $convertor->queryExec(file_get_contents("src/sql/drop.sql"), 'Удаление таблиц');
 $convertor->queryExec(file_get_contents("src/sql/create.sql"), 'Создание таблиц');
 

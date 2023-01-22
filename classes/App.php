@@ -6,13 +6,14 @@ class App
 {
     private static $config;
 
-    public static function getConvertor(): Convertor
+    public static function getConvertor($database_url, $timezone = null): Convertor
     {
-        $tz = self::getConfig('TIMEZONE', 'Asia/Novosibirsk');
-        date_default_timezone_set($tz);
-        echo "Используется часовой пояс $tz" . PHP_EOL;
-        $pdo = new PostgreSQL(self::getConfig('DATABASE_URL'));
-        $pdo->query("SET TIMEZONE=\"$tz\"");
+        $pdo = new PostgreSQL($database_url);
+        if ($timezone) {
+            echo "Используется часовой пояс $timezone" . PHP_EOL;
+            $pdo->query("SET TIMEZONE=\"$timezone\"");
+            date_default_timezone_set($timezone);
+        }
         return new Convertor($pdo);
     }
 
